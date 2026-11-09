@@ -1,0 +1,10 @@
+.git
+.venv
+**/__pycache__
+**/*.pyc
+frontend/node_modules
+frontend/dist
+backend/db.sqlite3
+**/.pytest_cache
+*.md
+!README.md
