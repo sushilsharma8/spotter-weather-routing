@@ -45,9 +45,16 @@ docker run --rm -p 8000:8000 headwind
 
 This environment does not have a Docker daemon, so the image was not built here. The same process was run with gunicorn’s equivalent: Django serving the Vite build.
 
-## Live deployment
+## Vercel
 
-No public host is claimed for this revision. This environment has no Vercel credentials (`vercel whoami` reports no token; the Vercel API returns user not found) and no Render, Fly, or Hugging Face token. The app was exercised locally with the React build served by Django, which calls `/api/plan`, `/api/assess`, and `/api/corridor` on that same Django process.
+`vercel.json` uses Vercel Services (Beta on all plans; the current `services` key, which replaces `experimentalServices`). It was checked against the published Services, routing, Django, and Vite docs and the `vercel.json` schema at `https://openapi.vercel.sh/vercel.json` on 9 Nov 2026.
+
+- `frontend` service: root `frontend/`, framework `vite`. Its own rewrite sends non-file paths to `/index.html`. Vercel serves built files before that rewrite, so `/assets/*` stays the JS and CSS bundles.
+- `backend` service: root `backend/`, framework `django`, runtime `python3.12`, entrypoint `config.wsgi:application` (the `application` object in `config/wsgi.py`, which matches `WSGI_APPLICATION`).
+- Public rewrites: `/api/(.*)` goes to the backend and the service still sees `/api/...`, which is what the Django routes expect. Every other path goes to the frontend. The React app keeps calling relative `/api` on the same host.
+- `functions["config/wsgi.py"].maxDuration` is 120 seconds, inside the backend service. Fluid Compute’s Hobby ceiling is 300 seconds, so this fits a free account. A Chicago–Detroit plan is a few seconds; the cap leaves room for a slow routing or weather response. Tests are excluded from the function bundle.
+
+No environment variables are required. `DJANGO_DEBUG` defaults off, and `DJANGO_ALLOWED_HOSTS` defaults to `*`. Do not set `VITE_API_BASE`; an absolute API host would skip the same-origin rewrite. This agent did not create a Vercel project or deployment. Deploy the feature-branch commit that contains this file. The local one-process gunicorn command remains valid for machines that are not using Services; on Vercel the frontend service serves the SPA, so Django does not need `frontend/dist`.
 
 ## Architecture
 
@@ -63,7 +70,9 @@ Django
   Open-Meteo                 hourly wind, rain, snow depth
 ```
 
-The plan call returns geometry immediately. Assessment and the corridor forecast then run together. The slider only changes which already-fetched hour is drawn.
+The plan call returns geometry immediately. Assessment and the corridor forecast then run together. Open-Meteo calls are batched 40 points at a time with at most 3 batches in flight, and successful responses are cached for 20 minutes.
+
+The corridor control is a canvas layer on the map, not a chart. Each sample is a point on or beside the routed roads. At the selected clock hour the layer paints that point’s risk color, lightened when wind, rain, and snow are weak and saturated when they are strong. Dragging the slider repaints those cells from the other hour. Checkpoint dots stay on driving-arrival risk and do not follow the slider.
 
 Miles are the great-circle length of the routed geometry, so the risk categories add up to the route length. Travel time is the engine duration. Checkpoint ETAs walk the engine’s per-edge driving times, scaled so the destination matches that duration. A single truck speed is not assumed.
 

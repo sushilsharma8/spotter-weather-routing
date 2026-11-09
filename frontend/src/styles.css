@@ -96,12 +96,14 @@ button { cursor: pointer; }
   gap: 8px 12px;
   align-items: center;
   padding: 8px 10px;
-  background: rgba(251, 246, 236, 0.92);
+  background: rgba(251, 246, 236, 0.94);
   border: 1px solid var(--line);
   border-radius: 10px;
   font-size: 12px;
-  max-width: min(440px, calc(100% - 70px));
+  max-width: min(460px, calc(100% - 70px));
 }
+.map-legend strong { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+.map-legend small { flex-basis: 100%; color: var(--muted); }
 .map-legend span, .legend .swatch, .checkpoints .swatch {
   width: 10px;
   height: 10px;

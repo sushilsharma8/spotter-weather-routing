@@ -177,13 +177,15 @@ export function App() {
           }}
           onCheckpoint={(_routeId, index) => setActiveCheckpoint(index)}
         />
-        <div className="map-legend" aria-hidden="true">
+        <div className="map-legend">
+          <strong>Corridor forecast</strong>
           <span className="risk-low" /> Low
           <span className="risk-moderate" /> Moderate
           <span className="risk-high" /> High
           <span className="risk-severe" /> Severe
           <span className="risk-no_travel" /> No travel
           <span className="risk-unknown" /> Unknown
+          <small>Shaded field follows the slider hour. Route dots follow driving arrival.</small>
         </div>
       </div>
       <ForecastBar

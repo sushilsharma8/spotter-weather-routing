@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react"
 import L from "leaflet"
 import "leaflet/dist/leaflet.css"
 import type { AssessedRoute, CorridorResponse, PlanRoute } from "../types"
-import { HEAT_COLOR, RISK_COLOR } from "./colors"
+import { RISK_COLOR } from "./colors"
 
 type Props = {
   planId: string | null
@@ -20,6 +20,32 @@ type Props = {
 type HeatLayer = L.Layer & {
   setData: (points: CorridorResponse["points"], spacing: number) => void
   setHour: (hour: number) => void
+}
+
+const RISK_RGB: [number, number, number][] = [
+  [109, 103, 95],
+  [44, 138, 74],
+  [184, 134, 11],
+  [216, 101, 18],
+  [210, 60, 52],
+  [110, 22, 54],
+]
+
+function fieldColor(risk: number, wind: number | null, rain: number | null, snow: number | null): { fill: string; strength: number } {
+  const rgb = RISK_RGB[risk] ?? RISK_RGB[0]
+  const magnitude = Math.max(
+    wind == null ? 0 : Math.min(1, wind / 40),
+    rain == null ? 0 : Math.min(1, rain / 0.35),
+    snow == null ? 0 : Math.min(1, snow / 1.5),
+  )
+  const floor = [0.5, 0.16, 0.58, 0.72, 0.84, 0.92][risk] ?? 0.4
+  const strength = Math.max(floor, magnitude)
+  const wash = (1 - strength) * 0.78
+  const red = Math.round(rgb[0] + (244 - rgb[0]) * wash)
+  const green = Math.round(rgb[1] + (239 - rgb[1]) * wash)
+  const blue = Math.round(rgb[2] + (220 - rgb[2]) * wash)
+  const alpha = 0.28 + 0.62 * strength
+  return { fill: `rgba(${red},${green},${blue},${alpha.toFixed(3)})`, strength }
 }
 
 const CorridorCanvas = L.Layer.extend({
@@ -62,7 +88,14 @@ const CorridorCanvas = L.Layer.extend({
     this._canvas.style.height = `${size.y}px`
     this._projected = this._points.map((point) => {
       const projected = this._map.latLngToContainerPoint([point.lat, point.lon])
-      return { x: projected.x * ratio, y: projected.y * ratio, risk: point.risk }
+      return {
+        x: projected.x * ratio,
+        y: projected.y * ratio,
+        risk: point.risk,
+        wind: point.wind_mph,
+        rain: point.rain_in_hr,
+        snow: point.snow_in_hr,
+      }
     })
     this._draw()
   },
@@ -75,16 +108,22 @@ const CorridorCanvas = L.Layer.extend({
     const lat = this._points[0]?.lat ?? 40
     const zoom = this._map.getZoom()
     const metersPerPixel = (156543.03392 * Math.cos((lat * Math.PI) / 180)) / 2 ** zoom
-    const radius = Math.max(14, Math.min(96, ((this._spacing * 1609.344) / metersPerPixel) * 0.62)) * (this._ratio || 1)
-    for (let level = 0; level <= 5; level += 1) {
+    const radius = Math.max(18, Math.min(110, ((this._spacing * 1609.344) / metersPerPixel) * 0.72)) * (this._ratio || 1)
+    const hour = this._hour
+    const painted = this._projected
+      .map((point) => {
+        const risk = point.risk[hour] ?? 0
+        const color = fieldColor(risk, point.wind[hour] ?? null, point.rain[hour] ?? null, point.snow[hour] ?? null)
+        return { ...point, risk, ...color }
+      })
+      .sort((a, b) => a.strength - b.strength || a.risk - b.risk)
+    for (const point of painted) {
+      const gradient = ctx.createRadialGradient(point.x, point.y, radius * 0.08, point.x, point.y, radius)
+      gradient.addColorStop(0, point.fill)
+      gradient.addColorStop(1, "rgba(244, 239, 220, 0)")
+      ctx.fillStyle = gradient
       ctx.beginPath()
-      ctx.fillStyle = HEAT_COLOR[level]
-      for (const point of this._projected) {
-        const risk = point.risk[this._hour] ?? 0
-        if (risk !== level) continue
-        ctx.moveTo(point.x + radius, point.y)
-        ctx.arc(point.x, point.y, radius, 0, Math.PI * 2)
-      }
+      ctx.arc(point.x, point.y, radius, 0, Math.PI * 2)
       ctx.fill()
     }
   },
@@ -94,7 +133,14 @@ type HeatState = {
   _points: CorridorResponse["points"]
   _hour: number
   _spacing: number
-  _projected: { x: number; y: number; risk: number[] }[] | null
+  _projected: {
+    x: number
+    y: number
+    risk: number[]
+    wind: (number | null)[]
+    rain: (number | null)[]
+    snow: (number | null)[]
+  }[] | null
   _map: L.Map
   _canvas: HTMLCanvasElement
   _ratio: number

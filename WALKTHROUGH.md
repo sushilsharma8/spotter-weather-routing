@@ -24,7 +24,7 @@ Read the recommended route and the reasons. Open the ranking table: fewest Sever
 
 ## 5:15 Corridor slider
 
-Drag the 0–48 hour slider. The heading clock and the wind number change. The sparkline cursor moves along the fetched hourly series. Say the teal bar is only the driving window of the selected route, while the slider can show later corridor weather. Checkpoint colors do not follow the slider. They follow arrival time. If the whole corridor stays green, the forecast is in the Low band. The numbers are still changing.
+Drag the 0–48 hour slider and keep your eyes on the shaded field around the roads, not only the sparkline. That field is the corridor sample at the slider’s clock hour: risk color from the legend, lighter where wind, rain, and snow are weak. The teal bar is only how long the selected route is driving. Checkpoint dots use arrival time and stay put when the slider moves.
 
 ## 6:30 Missing forecast
 
