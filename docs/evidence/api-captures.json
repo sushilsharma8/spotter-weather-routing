@@ -1,0 +1,843 @@
+{
+  "captured_at": "2026-11-09T04:37:47.150435Z",
+  "chicago_detroit": {
+    "request": {
+      "origin": "Chicago, IL",
+      "destination": "Detroit, MI",
+      "departure": "2026-11-10T08:00",
+      "timezone": "America/Chicago",
+      "load_lb": 25000,
+      "spacing_miles": 25
+    },
+    "route_count": 3,
+    "notes": [
+      "Routes use a car driving profile (Valhalla auto or OSRM driving). They do not enforce truck height, weight, hazmat, or road restrictions and are not certified truck routes. Travel time is the engine's driving duration, not an hours-of-service schedule."
+    ],
+    "provider_errors": [],
+    "origin": {
+      "label": "Chicago, Cook County, Illinois",
+      "lat": 41.8755616,
+      "lon": -87.6244212,
+      "query": "Chicago, IL"
+    },
+    "destination": {
+      "label": "Detroit, Wayne, Michigan",
+      "lat": 42.3315509,
+      "lon": -83.0466403,
+      "query": "Detroit, MI"
+    },
+    "routes": [
+      {
+        "id": "A",
+        "provider": "valhalla",
+        "kind": "primary",
+        "profile": "auto",
+        "road_name": "I 94 East",
+        "via": null,
+        "timing": "engine-maneuver",
+        "truck_restrictions": false,
+        "distance_miles": 282.062,
+        "duration_seconds": 15611.0,
+        "checkpoint_count": 13,
+        "checkpoint_miles": [
+          0.0,
+          25.0,
+          50.0,
+          75.0,
+          100.0,
+          125.0,
+          150.0,
+          175.0,
+          200.0,
+          225.0,
+          250.0,
+          275.0,
+          282.062
+        ],
+        "origin_checkpoint": {
+          "mile": 0.0,
+          "lat": 41.875562,
+          "lon": -87.624351,
+          "elapsed_seconds": 0.0
+        },
+        "mid_checkpoint": {
+          "index": 6,
+          "mile": 150.0,
+          "lat": 42.27009625772765,
+          "lon": -85.46944407726426,
+          "elapsed_seconds": 8518.567831697463
+        },
+        "destination_checkpoint": {
+          "mile": 282.0619957504945,
+          "lat": 42.331553,
+          "lon": -83.047029,
+          "elapsed_seconds": 15610.955999999966,
+          "is_destination": true
+        },
+        "geometry_vertices": 295,
+        "geometry_sha256": "338fcaaab1211fcfbacd1847a2a0c662882e34d4744ea99101f8c7a3968f8ab8",
+        "geometry_samples": [
+          {
+            "mile": 0.0,
+            "lon": -87.62435,
+            "lat": 41.87556
+          },
+          {
+            "mile": 22.8855,
+            "lon": -87.47872,
+            "lat": 41.61172
+          },
+          {
+            "mile": 48.7445,
+            "lon": -87.02035,
+            "lat": 41.62813
+          },
+          {
+            "mile": 90.9903,
+            "lon": -86.5071,
+            "lat": 42.03543
+          },
+          {
+            "mile": 143.5096,
+            "lon": -85.58252,
+            "lat": 42.23677
+          },
+          {
+            "mile": 186.0517,
+            "lon": -84.79064,
+            "lat": 42.28096
+          },
+          {
+            "mile": 230.2644,
+            "lon": -83.94957,
+            "lat": 42.2991
+          },
+          {
+            "mile": 253.9736,
+            "lon": -83.5375,
+            "lat": 42.3722
+          },
+          {
+            "mile": 279.9097,
+            "lon": -83.08483,
+            "lat": 42.33202
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "provider": "valhalla",
+        "kind": "alternate",
+        "profile": "auto",
+        "road_name": "I 90",
+        "via": null,
+        "timing": "engine-maneuver",
+        "truck_restrictions": false,
+        "distance_miles": 276.015,
+        "duration_seconds": 17182.9,
+        "checkpoint_count": 13,
+        "checkpoint_miles": [
+          0.0,
+          25.0,
+          50.0,
+          75.0,
+          100.0,
+          125.0,
+          150.0,
+          175.0,
+          200.0,
+          225.0,
+          250.0,
+          275.0,
+          276.015
+        ],
+        "origin_checkpoint": {
+          "mile": 0.0,
+          "lat": 41.875562,
+          "lon": -87.624351,
+          "elapsed_seconds": 0.0
+        },
+        "mid_checkpoint": {
+          "index": 6,
+          "mile": 150.0,
+          "lat": 41.852429724786994,
+          "lon": -85.24575872685035,
+          "elapsed_seconds": 9038.246274805251
+        },
+        "destination_checkpoint": {
+          "mile": 276.0150580119035,
+          "lat": 42.331553,
+          "lon": -83.047029,
+          "elapsed_seconds": 17182.872999999967,
+          "is_destination": true
+        },
+        "geometry_vertices": 339,
+        "geometry_sha256": "535ceee52abaa861c88f5eeddcbaeb1b412efe6d3d03ac37559d8cc917ba8863",
+        "geometry_samples": [
+          {
+            "mile": 0.0,
+            "lon": -87.62435,
+            "lat": 41.87556
+          },
+          {
+            "mile": 30.7507,
+            "lon": -87.32854,
+            "lat": 41.60338
+          },
+          {
+            "mile": 61.2356,
+            "lon": -86.78925,
+            "lat": 41.63473
+          },
+          {
+            "mile": 90.0685,
+            "lon": -86.29637,
+            "lat": 41.72404
+          },
+          {
+            "mile": 128.378,
+            "lon": -85.57491,
+            "lat": 41.75356
+          },
+          {
+            "mile": 162.6732,
+            "lon": -85.04153,
+            "lat": 41.94211
+          },
+          {
+            "mile": 208.9931,
+            "lon": -84.19078,
+            "lat": 42.06165
+          },
+          {
+            "mile": 240.2618,
+            "lon": -83.65422,
+            "lat": 42.2226
+          },
+          {
+            "mile": 275.4977,
+            "lon": -83.05446,
+            "lat": 42.33457
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "provider": "valhalla",
+        "kind": "alternate",
+        "profile": "auto",
+        "road_name": "I 94 East",
+        "via": null,
+        "timing": "engine-maneuver",
+        "truck_restrictions": false,
+        "distance_miles": 293.862,
+        "duration_seconds": 17167.4,
+        "checkpoint_count": 13,
+        "checkpoint_miles": [
+          0.0,
+          25.0,
+          50.0,
+          75.0,
+          100.0,
+          125.0,
+          150.0,
+          175.0,
+          200.0,
+          225.0,
+          250.0,
+          275.0,
+          293.862
+        ],
+        "origin_checkpoint": {
+          "mile": 0.0,
+          "lat": 41.875562,
+          "lon": -87.624351,
+          "elapsed_seconds": 0.0
+        },
+        "mid_checkpoint": {
+          "index": 6,
+          "mile": 150.0,
+          "lat": 42.237554569033726,
+          "lon": -85.68622093707413,
+          "elapsed_seconds": 9447.030697842712
+        },
+        "destination_checkpoint": {
+          "mile": 293.86154040438447,
+          "lat": 42.331553,
+          "lon": -83.047029,
+          "elapsed_seconds": 17167.391999999993,
+          "is_destination": true
+        },
+        "geometry_vertices": 343,
+        "geometry_sha256": "9c4a6d9350958eeec1899e01072062622e055675a520fc6045b527e434deaed7",
+        "geometry_samples": [
+          {
+            "mile": 0.0,
+            "lon": -87.62435,
+            "lat": 41.87556
+          },
+          {
+            "mile": 30.7507,
+            "lon": -87.32854,
+            "lat": 41.60338
+          },
+          {
+            "mile": 61.2356,
+            "lon": -86.78925,
+            "lat": 41.63473
+          },
+          {
+            "mile": 88.3168,
+            "lon": -86.33828,
+            "lat": 41.72642
+          },
+          {
+            "mile": 120.8928,
+            "lon": -86.10787,
+            "lat": 42.08164
+          },
+          {
+            "mile": 175.8654,
+            "lon": -85.19957,
+            "lat": 42.2619
+          },
+          {
+            "mile": 230.1327,
+            "lon": -84.17819,
+            "lat": 42.29331
+          },
+          {
+            "mile": 259.8591,
+            "lon": -83.63191,
+            "lat": 42.32685
+          },
+          {
+            "mile": 291.7092,
+            "lon": -83.08483,
+            "lat": 42.33202
+          }
+        ]
+      }
+    ],
+    "geometry_hashes_distinct": true,
+    "spacing": {
+      "10": {
+        "checkpoint_miles": [
+          0.0,
+          10.0,
+          20.0,
+          30.0,
+          40.0,
+          50.0,
+          60.0,
+          70.0,
+          80.0,
+          90.0,
+          100.0,
+          110.0,
+          120.0,
+          130.0,
+          140.0,
+          150.0,
+          160.0,
+          170.0,
+          180.0,
+          190.0,
+          200.0,
+          210.0,
+          220.0,
+          230.0,
+          240.0,
+          250.0,
+          260.0,
+          270.0,
+          280.0,
+          282.062
+        ],
+        "distance_miles": 282.062
+      },
+      "25": {
+        "checkpoint_miles": [
+          0.0,
+          25.0,
+          50.0,
+          75.0,
+          100.0,
+          125.0,
+          150.0,
+          175.0,
+          200.0,
+          225.0,
+          250.0,
+          275.0,
+          282.062
+        ],
+        "distance_miles": 282.062
+      },
+      "50": {
+        "checkpoint_miles": [
+          0.0,
+          50.0,
+          100.0,
+          150.0,
+          200.0,
+          250.0,
+          282.062
+        ],
+        "distance_miles": 282.062
+      }
+    },
+    "mid_route_weather": {
+      "route_id": "A",
+      "departure": "2026-11-10T08:00:00-06:00",
+      "origin_wind_mph": 7.1,
+      "mid_mile": 150.0,
+      "mid_eta": "2026-11-10T10:21:58.567832-06:00",
+      "mid_elapsed_seconds": 8518.567831697463,
+      "mid_wind_mph": 10.273253768444444,
+      "mid_risk": "low",
+      "different_from_departure": true
+    },
+    "recommendation": {
+      "route_id": "A",
+      "reasons": [
+        "Shorter travel time than C: 260.2 vs 286.1 min.",
+        "Shorter travel time than B: 260.2 vs 286.4 min."
+      ],
+      "eligible_ids": [
+        "A",
+        "C",
+        "B"
+      ]
+    }
+  },
+  "fewer_than_three_or_via": {
+    "origin": {
+      "label": "Oak Park, Cook County, Illinois",
+      "lat": 41.8878145,
+      "lon": -87.7887615,
+      "query": "Oak Park, IL"
+    },
+    "destination": {
+      "label": "Cicero, Cook County, Illinois",
+      "lat": 41.8455398,
+      "lon": -87.7540199,
+      "query": "Cicero, IL"
+    },
+    "route_count": 1,
+    "notes": [
+      "Only 1 distinct driving route came back. No geometry was invented to fill the gap.",
+      "Routes use a car driving profile (Valhalla auto or OSRM driving). They do not enforce truck height, weight, hazmat, or road restrictions and are not certified truck routes. Travel time is the engine's driving duration, not an hours-of-service schedule."
+    ],
+    "routes": [
+      {
+        "id": "A",
+        "provider": "valhalla",
+        "kind": "primary",
+        "profile": "auto",
+        "road_name": "I 290 East",
+        "via": null,
+        "timing": "engine-maneuver",
+        "truck_restrictions": false,
+        "distance_miles": 7.23,
+        "duration_seconds": 1033.3,
+        "checkpoint_count": 2,
+        "checkpoint_miles": [
+          0.0,
+          7.23
+        ],
+        "origin_checkpoint": {
+          "mile": 0.0,
+          "lat": 41.887802,
+          "lon": -87.789578,
+          "elapsed_seconds": 0.0
+        },
+        "mid_checkpoint": {
+          "index": 1,
+          "mile": 7.229965682212805,
+          "lat": 41.84554,
+          "lon": -87.753927,
+          "elapsed_seconds": 1033.347
+        },
+        "destination_checkpoint": {
+          "mile": 7.229965682212805,
+          "lat": 41.84554,
+          "lon": -87.753927,
+          "elapsed_seconds": 1033.347,
+          "is_destination": true
+        },
+        "geometry_vertices": 10,
+        "geometry_sha256": "466585fa0a74f52ede19fe932bb993414a6e9dcfeae86a5b92b097f97ad270db",
+        "geometry_samples": [
+          {
+            "mile": 0.0,
+            "lon": -87.78958,
+            "lat": 41.8878
+          },
+          {
+            "mile": 0.0467,
+            "lon": -87.7896,
+            "lat": 41.88848
+          },
+          {
+            "mile": 0.8416,
+            "lon": -87.80504,
+            "lat": 41.88859
+          },
+          {
+            "mile": 1.8779,
+            "lon": -87.8046,
+            "lat": 41.87362
+          },
+          {
+            "mile": 3.719,
+            "lon": -87.76906,
+            "lat": 41.87064
+          },
+          {
+            "mile": 4.07,
+            "lon": -87.76229,
+            "lat": 41.87123
+          },
+          {
+            "mile": 4.9607,
+            "lon": -87.74501,
+            "lat": 41.87118
+          },
+          {
+            "mile": 6.3335,
+            "lon": -87.74428,
+            "lat": 41.85134
+          },
+          {
+            "mile": 6.8391,
+            "lon": -87.7541,
+            "lat": 41.8512
+          },
+          {
+            "mile": 7.23,
+            "lon": -87.75393,
+            "lat": 41.84554
+          }
+        ]
+      }
+    ]
+  },
+  "seattle_eugene_corridor_hours": {
+    "request": {
+      "origin": "Seattle, WA",
+      "destination": "Eugene, OR",
+      "departure": "2026-11-10T08:00",
+      "timezone": "America/Los_Angeles"
+    },
+    "routes": [
+      {
+        "id": "A",
+        "kind": "primary",
+        "provider": "valhalla",
+        "road_name": "I 5 South",
+        "distance_miles": 290.4
+      }
+    ],
+    "hour_a": {
+      "hour": 4,
+      "time": "2026-11-10T12:00:00-08:00",
+      "risk_counts": {
+        "1": 68,
+        "2": 4,
+        "4": 1,
+        "3": 2
+      },
+      "wind_min": 1.0,
+      "wind_max": 23.0,
+      "rain_max": 0.795,
+      "rain_cells_over_0_05": 14
+    },
+    "hour_b": {
+      "hour": 35,
+      "time": "2026-11-11T19:00:00-08:00",
+      "risk_counts": {
+        "1": 75
+      },
+      "wind_min": 0.8,
+      "wind_max": 8.5,
+      "rain_max": 0.0,
+      "rain_cells_over_0_05": 0
+    },
+    "sample_hours": [
+      {
+        "hour": 0,
+        "time": "2026-11-10T08:00:00-08:00",
+        "risk_counts": {
+          "1": 69,
+          "2": 6
+        },
+        "wind_min": 0.5,
+        "wind_max": 24.3,
+        "rain_max": 0.228,
+        "rain_cells_over_0_05": 11
+      },
+      {
+        "hour": 1,
+        "time": "2026-11-10T09:00:00-08:00",
+        "risk_counts": {
+          "2": 8,
+          "1": 66,
+          "3": 1
+        },
+        "wind_min": 0.2,
+        "wind_max": 23.4,
+        "rain_max": 0.425,
+        "rain_cells_over_0_05": 14
+      },
+      {
+        "hour": 2,
+        "time": "2026-11-10T10:00:00-08:00",
+        "risk_counts": {
+          "1": 65,
+          "2": 8,
+          "3": 2
+        },
+        "wind_min": 1.0,
+        "wind_max": 22.1,
+        "rain_max": 0.268,
+        "rain_cells_over_0_05": 18
+      },
+      {
+        "hour": 3,
+        "time": "2026-11-10T11:00:00-08:00",
+        "risk_counts": {
+          "1": 68,
+          "2": 4,
+          "3": 3
+        },
+        "wind_min": 0.9,
+        "wind_max": 23.7,
+        "rain_max": 0.354,
+        "rain_cells_over_0_05": 13
+      },
+      {
+        "hour": 4,
+        "time": "2026-11-10T12:00:00-08:00",
+        "risk_counts": {
+          "1": 68,
+          "2": 4,
+          "4": 1,
+          "3": 2
+        },
+        "wind_min": 1.0,
+        "wind_max": 23.0,
+        "rain_max": 0.795,
+        "rain_cells_over_0_05": 14
+      },
+      {
+        "hour": 5,
+        "time": "2026-11-10T13:00:00-08:00",
+        "risk_counts": {
+          "2": 14,
+          "1": 57,
+          "3": 4
+        },
+        "wind_min": 1.4,
+        "wind_max": 16.2,
+        "rain_max": 0.409,
+        "rain_cells_over_0_05": 22
+      },
+      {
+        "hour": 6,
+        "time": "2026-11-10T14:00:00-08:00",
+        "risk_counts": {
+          "1": 67,
+          "2": 8
+        },
+        "wind_min": 1.4,
+        "wind_max": 15.4,
+        "rain_max": 0.214,
+        "rain_cells_over_0_05": 12
+      },
+      {
+        "hour": 7,
+        "time": "2026-11-10T15:00:00-08:00",
+        "risk_counts": {
+          "1": 72,
+          "2": 3
+        },
+        "wind_min": 1.6,
+        "wind_max": 15.2,
+        "rain_max": 0.183,
+        "rain_cells_over_0_05": 10
+      }
+    ]
+  },
+  "via_and_short_cases": [
+    {
+      "origin": {
+        "label": "Albuquerque, Bernalillo, New Mexico",
+        "lat": 35.0841034,
+        "lon": -106.650985,
+        "query": "Albuquerque, NM"
+      },
+      "destination": {
+        "label": "Santa Fe, New Mexico",
+        "lat": 35.6876096,
+        "lon": -105.938456,
+        "query": "Santa Fe, NM"
+      },
+      "route_count": 2,
+      "notes": [
+        "Where the engines returned fewer than three alternatives, extra options were requested from the same engines through an intermediate via point. The geometry is still the engine's.",
+        "Only 2 distinct driving routes came back. No geometry was invented to fill the gap.",
+        "Routes use a car driving profile (Valhalla auto or OSRM driving). They do not enforce truck height, weight, hazmat, or road restrictions and are not certified truck routes. Travel time is the engine's driving duration, not an hours-of-service schedule."
+      ],
+      "routes": [
+        {
+          "id": "A",
+          "provider": "valhalla",
+          "kind": "primary",
+          "road_name": "I 25 North",
+          "distance_miles": 64.19,
+          "duration_min": 65.2,
+          "via": null,
+          "geometry_sha256": "05da6aa89ead729b1c6f09fd433ded31d8bd8f6e1204b32284801badb178e061",
+          "vertices": 51
+        },
+        {
+          "id": "B",
+          "provider": "valhalla",
+          "kind": "via",
+          "road_name": "NM 14",
+          "distance_miles": 75.89,
+          "duration_min": 99.2,
+          "via": {
+            "lat": 35.429842403675735,
+            "lon": -106.13751039612134,
+            "fraction": 0.62,
+            "side": "right"
+          },
+          "geometry_sha256": "8a847b2a817ca453f7ed0d11c022a9633979ed8fff8778abaee9b5ab9392162a",
+          "vertices": 131
+        }
+      ],
+      "sample_overlap_within_3mi": [
+        {
+          "a": "A",
+          "b": "B",
+          "a_near_b": 0.549,
+          "b_near_a": 0.25
+        }
+      ]
+    },
+    {
+      "origin": {
+        "label": "Dallas, Texas",
+        "lat": 32.7762719,
+        "lon": -96.7968559,
+        "query": "Dallas, TX"
+      },
+      "destination": {
+        "label": "Oklahoma City, Oklahoma, Oklahoma",
+        "lat": 35.4729886,
+        "lon": -97.5170536,
+        "query": "Oklahoma City, OK"
+      },
+      "route_count": 3,
+      "notes": [
+        "Where the engines returned fewer than three alternatives, extra options were requested from the same engines through an intermediate via point. The geometry is still the engine's.",
+        "Routes use a car driving profile (Valhalla auto or OSRM driving). They do not enforce truck height, weight, hazmat, or road restrictions and are not certified truck routes. Travel time is the engine's driving duration, not an hours-of-service schedule."
+      ],
+      "routes": [
+        {
+          "id": "A",
+          "provider": "valhalla",
+          "kind": "primary",
+          "road_name": "I 35E North",
+          "distance_miles": 206.43,
+          "duration_min": 189.9,
+          "via": null,
+          "geometry_sha256": "a4012977242b912951236055be2daefc1dcf55d4290571e90e760e0e90149781",
+          "vertices": 218
+        },
+        {
+          "id": "B",
+          "provider": "valhalla",
+          "kind": "alternate",
+          "road_name": "I 35",
+          "distance_miles": 242.04,
+          "duration_min": 227.5,
+          "via": null,
+          "geometry_sha256": "d5d6884b8cff0521ad566846ba9f692b3dfb3d72e6ab62d91ab82b4ca1821ee5",
+          "vertices": 241
+        },
+        {
+          "id": "C",
+          "provider": "valhalla",
+          "kind": "via",
+          "road_name": "I 35",
+          "distance_miles": 254.44,
+          "duration_min": 276.4,
+          "via": {
+            "lat": 33.78314985462086,
+            "lon": -97.55754086847571,
+            "fraction": 0.35,
+            "side": "left"
+          },
+          "geometry_sha256": "79bba44cc1994f764be51bf5ee4cf047dd395731f4da101e587dda4d41a54aec",
+          "vertices": 253
+        }
+      ],
+      "sample_overlap_within_3mi": [
+        {
+          "a": "A",
+          "b": "B",
+          "a_near_b": 0.545,
+          "b_near_a": 0.488
+        },
+        {
+          "a": "A",
+          "b": "C",
+          "a_near_b": 0.909,
+          "b_near_a": 0.767
+        },
+        {
+          "a": "B",
+          "b": "C",
+          "a_near_b": 0.512,
+          "b_near_a": 0.465
+        }
+      ]
+    },
+    {
+      "origin": {
+        "label": "Oak Park, Cook County, Illinois",
+        "lat": 41.8878145,
+        "lon": -87.7887615,
+        "query": "Oak Park, IL"
+      },
+      "destination": {
+        "label": "Cicero, Cook County, Illinois",
+        "lat": 41.8455398,
+        "lon": -87.7540199,
+        "query": "Cicero, IL"
+      },
+      "route_count": 1,
+      "notes": [
+        "Only 1 distinct driving route came back. No geometry was invented to fill the gap.",
+        "Routes use a car driving profile (Valhalla auto or OSRM driving). They do not enforce truck height, weight, hazmat, or road restrictions and are not certified truck routes. Travel time is the engine's driving duration, not an hours-of-service schedule."
+      ],
+      "routes": [
+        {
+          "id": "A",
+          "provider": "valhalla",
+          "kind": "primary",
+          "road_name": "I 290 East",
+          "distance_miles": 7.23,
+          "duration_min": 17.2,
+          "via": null,
+          "geometry_sha256": "a11f8825ccc7d3443015bbdee10c2b812ec0ff32526064d03f1ace424e62eb30",
+          "vertices": 10
+        }
+      ],
+      "sample_overlap_within_3mi": []
+    }
+  ]
+}
