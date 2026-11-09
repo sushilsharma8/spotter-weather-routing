@@ -11,7 +11,6 @@
     "backend": {
       "root": "backend/",
       "framework": "django",
-      "runtime": "python3.12",
       "entrypoint": "config.wsgi:application",
       "functions": {
         "config/wsgi.py": {
